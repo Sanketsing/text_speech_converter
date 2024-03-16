@@ -1,0 +1,44 @@
+<html>
+<body>
+
+<form id="userForm">
+    <label for="firstName">Name:</label>
+    <input type="text" id="firstName" name="firstName"><br>
+
+    <label for="middleName">Middle Name:</label>
+    <input type="text" id="middleName" name="middleName"><br>
+
+    <label for="lastName">Surname:</label>
+    <input type="text" id="lastName" name="lastName"><br>
+
+    <button type="button" id="submitButton" onclick="generateMail()">Submit</button>
+</form>
+
+<script>
+function generateMail() {
+    // Get input values
+    var firstName = document.getElementById("firstName").value;
+    var middleName = document.getElementById("middleName").value;
+    var lastName = document.getElementById("lastName").value;
+
+    // Construct email ID
+    var email = firstName.toLowerCase() + "." + lastName.toLowerCase() + "@msbte.com";
+
+    // Display email as message
+    alert("Generated Email ID: " + email);
+    
+
+    // Disable textboxes and change color to red
+    var textBoxes = document.querySelectorAll("input[type='text']");
+    for (var i = 0; i < textBoxes.length; i++) {
+        textBoxes[i].disabled = true;
+        textBoxes[i].classList.add("disabled");
+    }
+
+    // Disable submit button after click
+    document.getElementById("submitButton").disabled = true;
+}
+</script>
+
+</body>
+</html>
